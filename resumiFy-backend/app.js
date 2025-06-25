@@ -9,7 +9,19 @@ require('dotenv').config();
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-app.use(cors());  //cross origin res sharing - connecting to frontend
+//cross origin res sharing - connecting to frontend
+const allowedOrigins = process.env.ALLOWED_ORIGINS.split(',');
+app.use(cors({
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true); // Allow
+    } else {
+      callback(new Error('Not allowed by CORS')); // Block
+    }
+  },
+  credentials: true
+}));
+
 app.use(express.json()); // parse incoming json bodies
 
 connectDb();
