@@ -130,16 +130,16 @@ const ResumeBuilder = () => {
 
         {/* Preview */}
         <div className="w-[800px] bg-white text-black p-6 shadow rounded font-sans">
+          <div className='flex justify-center gap-4 mb-4'>
+          <Button
+            text={'back to Dashboard'}
+            onClick={handleDashboard}
+          />
+        </div>
           <ResumePreview {...resumeData} />
           <div className="flex justify-center gap-4 mt-4">
             <Button onClick={handleSave} text="Save Resume" />
             <Button onClick={handleDownload} text="Download Resume" />
-          </div>
-          <div className='flex justify-center gap-4 mt-4'>
-            <Button
-              text={'back to Dashboard'}
-              onClick={handleDashboard}
-            />
           </div>
         </div>
       </div>

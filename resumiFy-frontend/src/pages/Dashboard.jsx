@@ -102,7 +102,7 @@ const Dashboard = () => {
       )}
 
       {/* Floating Create Button */}
-      <div className="fixed bottom-6 right-6">
+      <div className="bottom-6 right-6">
         <Button
           text="+ Create Resume"
           onClick={handleCreate}
